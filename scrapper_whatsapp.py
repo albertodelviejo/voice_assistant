@@ -6,13 +6,10 @@ from selenium.webdriver.common.by import By
 import time
 import sys
 
-# options = webdriver.ChromeOptions()
-# options.add_argument('--disable-infobars')
-# options.add_argument('--disable-extensions')
-# options.add_argument('--profile-directory=Default')
-# options.add_argument("--disable-plugins-discovery")
+options = webdriver.ChromeOptions()
+options.add_argument(r"user-data-dir=/home/alberto/WebWhatsAppBot")
 
-driver = webdriver.Chrome('/home/alberto/chromedriver')#, chrome_options= options)
+driver = webdriver.Chrome('/home/alberto/chromedriver', chrome_options=options)
 
 driver.get("https://web.whatsapp.com/")
 
@@ -20,7 +17,7 @@ wait = WebDriverWait(driver, 600)
 
 target = '"David Piso Valencia"'
 
-string = "El asistente de voz de saluda"
+string = "El asistente de voz te dice gilipollas tu"
 
 x_arg = '//span[contains(@title,' + target + ')]'
 group_title = wait.until(EC.presence_of_element_located((
